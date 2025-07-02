@@ -12,7 +12,7 @@
 <div id="tokenFetchResult"></div>
 <br>
 
-<button id="passLicenseButton">Send Request</button>
+<button id="passTokenButton">Pass token to iframe</button>
 <div id="tokenPassResult"></div>
 <br>
 
@@ -54,7 +54,7 @@
     }
   });
 
-  document.getElementById('passLicenseButton').addEventListener('click', async function() {
+  document.getElementById('passTokenButton').addEventListener('click', async function() {
     const resultDiv = document.getElementById('tokenPassResult');
     document.getElementById('BMMP').contentWindow.postMessage(
       {
