@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BMMP embedding example</title>
+<link rel="stylesheet" href="example.css">
+</head>
+<body>
+
+<h1>Bookmap Web Widget embedding example</h1>
+
+<div style="width: 900px; height: 400px;">
+  <!-- Bookmap Web Widget begin -->
+  <iframe
+    src="https://usl098.int.bookmap.com"
+    style="width: 100%; height: 100%; border: 0"
+	id="BMMP">
+  </iframe>
+  <!-- Bookmap Web Widget end -->
+</div>
+
+<script>
+  const token = '{\n' +
+    '    "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJUQTVwMzdhMDhjLXJfZWNyclhvV29iU3hoR2ZmY3U1RW1HVnpISnpWQ2NzIn0.eyJleHAiOjE3NTEzODg2OTMsImlhdCI6MTc1MTM2NzA5MywianRpIjoiOTQyNWZmOTUtOTFiMi00NjU3LTlmMmYtNDkwZjYyMmJmNmIyIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi1kZXYuaW50LmJvb2ttYXAuY29tL2F1dGgvcmVhbG1zL21hcmtldHBsYWNlIiwiYXVkIjpbImJtLWFtZW1iZXIiLCJtYXJrZXRwbGFjZSIsIm5nbSIsInNzby1zZXJ2aWNlIiwibGVhcm5pbmctY2VudGVyLWZyb250IiwiaW5zaWdodHMtZnJvbnQiLCJhY2NvdW50Il0sInN1YiI6IjM3N2UxZGY3LWI5MzYtNGY0YS1iYmFjLTE5YTkzYThkZWIxMiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImV4dGVybmFsLXVzZXItYnJpZGdlIiwic2lkIjoiOTdiN2FiODctNzRhNS00NTRlLTk2ZjQtZmE1OTJjMTQwZDFiIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1tYXJrZXRwbGFjZSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImJvb2ttYXAgZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiQXZvY2FkbyBUb2FzdCIsInByZWZlcnJlZF91c2VybmFtZSI6ImxpbWVfdXNlcl9wb3J0X2FhYmIxMV9saW1ldXNlckBhdm9jYWRvLmNvbSIsImxvY2FsZSI6ImVuIiwiZ2l2ZW5fbmFtZSI6IkF2b2NhZG8iLCJmYW1pbHlfbmFtZSI6IlRvYXN0IiwiZW1haWwiOiJsaW1lX3VzZXJfcG9ydF9hYWJiMTFfbGltZXVzZXJAYXZvY2Fkby5jb20ifQ.ii-gQ2a1DSmkCzyGHAQg7vSh-xr0YghJK1CMyiyuEm29hcuyFdZ85gBah66BPahdb57Ppe5009ZmqG4S7WjW9PtFj7AOyZ9RMxPYtwntmpPEwW7Pt_CDcSb_TKUs7bv4vFwjpgdr6c4dsxEMuYDrd4ENeHbJDzFoD6lUQlNqyD_dxUkOxhV9Jwyu7pq9sebtiex3mhKBp7vVIOj5KHT1-_CCGVC4hAsLqrnKHYoYaSgsptG31E_cmxLfBTDypqOyHExxwLAoa861xnV4GQmk_dHMYtXJ4OAPsg4BCTQapnXSULMjN3PBD8qwIota1h2vC34kbyefWMnSKKl-nK-LvQ",\n' +
+    '    "expires_in": 21600,\n' +
+    '    "refresh_expires_in": 36000,\n' +
+    '    "refresh_token": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwY2Y2ZmFkNi1lYjI2LTRmM2YtYWZiZi02Mjk2MzVjMTBhNWEifQ.eyJleHAiOjE3NTE0MDMwOTMsImlhdCI6MTc1MTM2NzA5MywianRpIjoiMDgyZjMzYjUtM2MzNC00NzRmLWFhMjItZWNhNDkwNmM1ZjA4IiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi1kZXYuaW50LmJvb2ttYXAuY29tL2F1dGgvcmVhbG1zL21hcmtldHBsYWNlIiwiYXVkIjoiaHR0cHM6Ly9sb2dpbi1kZXYuaW50LmJvb2ttYXAuY29tL2F1dGgvcmVhbG1zL21hcmtldHBsYWNlIiwic3ViIjoiMzc3ZTFkZjctYjkzNi00ZjRhLWJiYWMtMTlhOTNhOGRlYjEyIiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImV4dGVybmFsLXVzZXItYnJpZGdlIiwic2lkIjoiOTdiN2FiODctNzRhNS00NTRlLTk2ZjQtZmE1OTJjMTQwZDFiIiwic2NvcGUiOiJib29rbWFwIHJvbGVzIGJtX2xpY2Vuc2UgZW1haWwgYmFzaWMgYWNyIHByb2ZpbGUgd2ViLW9yaWdpbnMifQ.VsePp4bxbIngc3tV5LULBlWtuXEIMPpCHKn3A1SPmMZX5CSmjBBiXKpnkyD_KM-wE-IVkmydmqBOr4fQyy7Ksg",\n' +
+    '    "token_type": "Bearer",\n' +
+    '    "not-before-policy": 1733763280,\n' +
+    '    "session_state": "97b7ab87-74a5-454e-96f4-fa592c140d1b",\n' +
+    '    "scope": "bookmap email profile",\n' +
+    '    "issued_token_type": "urn:ietf:params:oauth:token-type:refresh_token"\n' +
+    '}'
+  window.onload = function() {
+    document.getElementById('BMMP').contentWindow.postMessage(
+      {
+        type: 'token',
+        data: token
+      },
+      'https://usl098.int.bookmap.com'
+    );
+  };
+</script>
+
+</body>
+</html>
+
