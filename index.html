@@ -35,7 +35,7 @@
 
   let bookmapToken = '';
   const authenticationKey = 'bGltZTE.H7qfudHCWxgnt5Rr8Gni';
-  const authenticationServer = 'https://test.x-bookmap.com';
+  const authenticationServer = 'http://usl120.int.bookmap.com:8080';
 
   async function createUser() {
     const resultDiv = document.getElementById('userCreationResult');
@@ -207,21 +207,16 @@
      */
     AuthType[AuthType["BOOKMAP"] = 0] = "BOOKMAP";
     /**
-     * Authentication using Lime code flow authentication API
-     * @see https://docs.lime.co/trader/authentication/code-flow/
-     */
-    AuthType[AuthType["LIME"] = 1] = "LIME";
-    /**
      * No authentication
      */
-    AuthType[AuthType["NONE"] = 2] = "NONE";
+    AuthType[AuthType["NONE"] = 1] = "NONE";
   })(AuthType || (AuthType = {}));
   /**
-   * Includes data for the Bookmap authentication flow
+   * Includes data for the Bookmap authentication protocol
    * @param {string} token - a token to authenticate the user
    * @param {string} userId - an identifier of the user
    */
-  class BookmapAuthData {
+   class BookmapAuthData {
     constructor(token) {
       this.token = token;
     }
@@ -229,30 +224,26 @@
       return AuthType.BOOKMAP;
     }
   }
-  class LimeAuthData {
-    getAuthType() {
-      return AuthType.LIME;
-    }
-  }
-  class NoAuthData {
+  /**
+   * Includes no authentication data. The iframe will be created without additional licenses.
+   */
+   class NoAuthData {
     getAuthType() {
       return AuthType.NONE;
     }
   }
   const defaultOptions = {
     url: '',
-    authData: new BookmapAuthData(''),
-    instrument: undefined,
-    container: undefined,
+    authData: new NoAuthData(),
     width: '100%',
     height: '100%',
   };
   /**
    * Creates an iframe of Bookmap Web
-   * @param [options] - Optional configuration options
+   * @param [options] - Configuration options
    * @returns Created iframe element
    */
-  function createIframe(options) {
+   function createIframe(options) {
     const mergedOptions = Object.assign(Object.assign({}, defaultOptions), options);
     const iframe = document.createElement('iframe');
     iframe.src = options.url;
@@ -286,8 +277,6 @@
       switch (authData.getAuthType()) {
         case AuthType.BOOKMAP:
           return authenticateBookmapUser(authData);
-        case AuthType.LIME:
-          return authenticateLimeUser();
         case AuthType.NONE:
           return null;
         default:
@@ -298,10 +287,6 @@
   function authenticateBookmapUser(authData) {
     const bookmapAuthData = authData;
     return bookmapAuthData.token;
-  }
-  // FIXME: implement Lime authentication
-  function authenticateLimeUser() {
-    throw new Error('Lime authentication is not implemented yet');
   }
 </script>
 
